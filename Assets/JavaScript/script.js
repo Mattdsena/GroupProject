@@ -3,10 +3,10 @@
 
 
 // Assign variable to  random word api url
-//var wordDef = 'https://wordsapiv1.p.mashape.com/words/definitions?random=true'
-//var wordSyn = 'https://wordsapiv1.p.mashape.com/words/synonyms?random=true'
-//var wordEx = 'https://wordsapiv1.p.mashape.com/words/examples?random=true'
-
+//var wordDef = 
+//var wordExamples = 
+//var wordSyn = 
+//var wordEx = 
 
 // Function to fetch word apis and display to page
   // create new elements, assign text content as fetch responses
