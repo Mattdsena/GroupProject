@@ -1,6 +1,6 @@
 //Api Keys
 var wordsApiKey = "89404d9e7emshb84fd6cf4678f81p15d0efjsneb0241320851";
-var genWord = document.querySelector(".gen-word")
+const getWord = document.querySelector("#get_word")
 var invi = document.querySelector(".invisible")
 
 // This is just to test the API was working - Hannah
@@ -18,7 +18,7 @@ fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", {
   console.log(data);
 })
 
-genWord.addEventListener("click", beginGen)
+getWord.addEventListener("click", beginGen)
 function beginGen(){
   invi.classList.remove("invisible")
 }
@@ -48,17 +48,4 @@ function beginGen(){
 
 
 // on click wordBtn, call fetch word function
-
-// Matts work
-
-const get_word_btn = document.getElementById('get_word');
-const word_container = document.getElementById('word');
-
-get_word_btn.addEventListener('click', () => {
-  fetch('link to wordAPI')
-    .then(res => res.json())
-    .then(res => {
-    createWord(res.word[0]);
-  });
-});
 
