@@ -45,10 +45,14 @@ fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", {
 
 // Matts work
 
-// const get_word_btn =
-// document.getElementById('get_word');
-// const word_container = document.getElementById('word');
+const get_word_btn = document.getElementById('get_word');
+const word_container = document.getElementById('word');
 
+get_word_btn.addEventListener('click', () => {
+  fetch('link to wordAPI')
+    .then(res => res.json())
+    .then(res => {
+    createWord(res.word[0]);
+  });
+});
 
-// get_word_btn.addEventListener('click', () => {
-// });
