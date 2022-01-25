@@ -1,0 +1,35 @@
+:root {
+  --black: #040403;
+  --lgrey: #c5c5c5;
+  --salmon: #faaa8b;
+  --red: #f02f2f;
+  --navy: #10568f;
+}
+
+header {
+  align-items: center;
+  background-color: var(--lgrey);
+  color: var(--navy);
+}
+
+body {
+  background-color: var(--salmon);
+}
+
+footer {
+  background-color: var(--lgrey) !important;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+}
+
+footer button {
+  margin: 10px !important;
+}
+
+.cell {
+  background-color: var(--lgrey);
+  padding: 20px;
+  margin: 20px;
+  color: var(--red);
+}
