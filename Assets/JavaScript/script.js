@@ -25,8 +25,7 @@
 
 // Matts work
 
-const get_word_btn =
-document.getElementById('get_word');
+const get_word_btn = document.getElementById('get_word');
 const word_container = document.getElementById('word');
 
 
