@@ -1,6 +1,6 @@
 //Api Keys
 var wordsApiKey = "89404d9e7emshb84fd6cf4678f81p15d0efjsneb0241320851";
-const getWord = document.querySelector(".get_word")
+const getWord = document.querySelector("#get_word")
 var invi = document.querySelector(".invisible")
 
 // This is just to test the API was working - Hannah
