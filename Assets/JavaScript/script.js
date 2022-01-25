@@ -1,3 +1,23 @@
+//Api Keys
+var wordsApiKey = "89404d9e7emshb84fd6cf4678f81p15d0efjsneb0241320851";
+
+
+// This is just to test the API was working - Hannah
+fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+		"x-rapidapi-key": wordsApiKey
+	}
+})
+.then(function (response) {
+  return response.json();
+})
+.then(function (data) {
+  console.log(data);
+})
+
+
 // Select elements from html and assign to variables
 // var wordBtn = document.querySelector("");
 
