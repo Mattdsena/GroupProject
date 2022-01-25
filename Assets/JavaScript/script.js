@@ -1,6 +1,7 @@
 //Api Keys
 var wordsApiKey = "89404d9e7emshb84fd6cf4678f81p15d0efjsneb0241320851";
-
+var genWord = document.querySelector(".gen-word")
+var invi = document.querySelector(".invisible")
 
 // This is just to test the API was working - Hannah
 fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", {
@@ -17,6 +18,11 @@ fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true", {
   console.log(data);
 })
 
+genWord.addEventListener("click", beginGen)
+function beginGen(){
+  invi.classList.remove("invisible")
+}
+  
 
 // Select elements from html and assign to variables
 // var wordBtn = document.querySelector("");
