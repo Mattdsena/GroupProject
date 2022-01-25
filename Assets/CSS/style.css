@@ -33,3 +33,7 @@ footer button {
   margin: 20px;
   color: var(--red);
 }
+
+.button {
+  border-radius: 10%;
+}
