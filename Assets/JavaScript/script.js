@@ -1,19 +1,33 @@
-//Api Keys
+//Api Key
 var wordsApiKey = "89404d9e7emshb84fd6cf4678f81p15d0efjsneb0241320851";
+
 const getWord = document.querySelector("#get_word");
 var invi = document.querySelector(".invisible");
+var definition = document.querySelector(".definition");
 
-// var wordBtn = document.querySelector("");
 
 
-// Assign variable to  random word api url
-//var wordDef = 
-//var wordExamples = 
-//var wordSyn = 
-//var wordEx = 
+
 
 // This is just to test the API was working - Hannah
-fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions", {
+// fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+// 		"x-rapidapi-key": wordsApiKey
+// 	}
+// })
+// .then(function (response) {
+//   return response.json();
+// })
+// .then(function (data) {
+//   console.log(data);
+// });
+
+
+getWord.addEventListener("click", beginGen);
+function beginGen() {
+  fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions&letters=5", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
@@ -25,17 +39,10 @@ fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitio
 })
 .then(function (data) {
   console.log(data);
-})
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  });
-
-getWord.addEventListener("click", beginGen);
-function beginGen() {
+  definition.textContent = data.results[0].definition;
+});
   invi.classList.remove("invisible");
+  
 }
 
 // Select elements from html and assign to variables
