@@ -1,69 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link href="Assets/CSS/reset.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css" />
+
     <title>Word Generator</title>
-</head>
+  </head>
 
-<body>
-   
+  <body>
     <header class="text-center">
-        <h1 class="text-center">Word Generator</h1>
+      <h1 class="text-center">Word Generator</h1>
     </header>
-     
-    <section class="text-center">
-        <!-- <p>~small concept breakdown~</p> -->
 
-        <button class="button alert text-center" id="get_word">Get Word</button>
+    <section class="text-center">
+      <!-- <p>~small concept breakdown~</p> -->
+
+      <button class="button alert text-center" id="get_word">Get Word</button>
     </section>
 
-    
-        <div class="grid-container">
-          <div class="grid-x grid-padding-x text-center align-center invisible">
-            <div class="medium-3 cell">
-                <h4>Pronunciation</h4>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, enim</p>
-                <h4>Part of Speech</h4>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, enim</p>
-                <h4>Definition</h4>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, enim</p>
-            </div>
-            <div class="medium-3 cell p20">
-              <h4>Example Sentence</h4>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, enim</p>
-            </div>
-            <div class="medium-3 cell">
-                <h4>Synonym</h4>
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, enim</p>
-           <h4>Antonym</h4>
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, enim</p>
-              </div>
-          </div>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x text-center align-center invisible">
+        <div class="medium-3 cell">
+          <h4>Pronunciation</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia,
+            enim
+          </p>
+          <h4>Part of Speech</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia,
+            enim
+          </p>
+          <h4>Definition</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia,
+            enim
+          </p>
         </div>
+        <div class="medium-3 cell p20">
+          <h4>Example Sentence</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia,
+            enim
+          </p>
+        </div>
+        <div class="medium-3 cell">
+          <h4>Synonym</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia,
+            enim
+          </p>
+          <h4>Antonym</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia,
+            enim
+          </p>
+        </div>
+      </div>
+    </div>
 
-        <section class="text-center">
-            <!-- <p>~small concept breakdown~</p> -->
-            <button class="button alert text-center invisible">Save Word</button>
-        </section>
+    <section class="text-center">
+      <!-- <p>~small concept breakdown~</p> -->
+      <button class="button alert text-center invisible">Save Word</button>
+    </section>
 
-        <footer>
-            <button class="button text-center float-left">My Words</button>
-            <button class="button text-center float-right">Music Player</button>
-        </footer>
-      
-        
-        
-
-
-
-
+    <footer>
+      <button class="button text-center float-left">My Words</button>
+      <button class="button text-center float-right" id="togglePlay">
+        Music Player
+      </button>
+    </footer>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script> -->
     <script src="./Assets/Javascript/script.js"></script>
-</body>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  </body>
 </html>
