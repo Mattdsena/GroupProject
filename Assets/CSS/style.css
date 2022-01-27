@@ -37,3 +37,7 @@ footer button {
 .button {
   border-radius: 10%;
 }
+footer .player {
+  width: 400px;
+  float: right;
+}
