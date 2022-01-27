@@ -13,14 +13,18 @@ var invi = document.querySelector(".invisible");
 //var wordEx = 
 
 // This is just to test the API was working - Hannah
-
 fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
 		"x-rapidapi-key": wordsApiKey
 	}
-
+})
+.then(function (response) {
+  return response.json();
+})
+.then(function (data) {
+  console.log(data);
 })
   .then(function (response) {
     return response.json();
@@ -35,6 +39,8 @@ function beginGen() {
 }
 
 // Select elements from html and assign to variables
+
+
 // Function to fetch word apis and display to page
 // create new elements, assign text content as fetch responses
 // append new elements
