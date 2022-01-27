@@ -49,7 +49,7 @@ function beginGen() {
 
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "BQBD2AgHF1VndFv108lnU2Gm-DFfguxOWO6N_Cd25YpLl4umcE27kSgO4wHaQoeLIWKWKY3tJ_xTwZplxQk8iRgnU7D4S0Q8ewKFS_fcNXKkFyYiajAwPDDZh0TgvXbKOJzR0HdhndE9bY9Y17-dNipybxCiocU";
+    "BQDAWU8MOC8rvDQnI4QyLm1F0FutzGEMuc-NqJGwBuVehRbwYeq-pUv7nGD_DcOjpf_x9VgrjsV5g40md3gPdYXGa4Jf7ajFnpD7mqV_ij4qbY5DxSnZ0WQFOIhpl8063DncrGPBfhVeIMhlml6U6M-hyifz7cw";
 
   const player = new Spotify.Player({
     name: "Web Playback SDK Quick Start Player",
@@ -58,7 +58,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     },
     volume: 0.5,
   });
-  // this function is the event listner, when the play is clicked it plays
+  // this function is the event listener, when the play button is clicked it plays
 
   document.getElementById("togglePlay").onclick = function () {
     player.togglePlay();
