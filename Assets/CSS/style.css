@@ -8,7 +8,7 @@
 
 header {
   align-items: center;
-  background-color: var(--lgrey);
+  background-color: var(--salmon);
   color: var(--navy);
 }
 
@@ -21,11 +21,13 @@ body {
   background-size: cover;
 }
 
-footer {
-  background-color: var(--lgrey) !important;
-  position: absolute;
-  z-index: 2;
+#footer {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
   width: 100%;
+  background-color: var(--salmon);
+  height: 7%;
 }
 
 footer button {
@@ -33,10 +35,10 @@ footer button {
 }
 
 .cell {
-  background-color: var(--lgrey);
+  background-color: var(--salmon);
   padding: 20px;
   margin: 20px;
-  color: var(--red);
+  color: var(--navy);
 }
 
 .button {
@@ -45,4 +47,8 @@ footer button {
 footer .player {
   width: 400px;
   float: right;
+}
+
+#exampleModal1 {
+  background-color: var(--salmon);
 }
