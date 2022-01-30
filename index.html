@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link href="Assets/CSS/reset.css"> -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
@@ -17,43 +16,64 @@
 
   <body>
     <header class="text-center">
-      <h1 class="text-center">Word Guess!<h1>
-        <p>How to play:</p>
-        <p>Guess the five-letter word based on the definition given!</p>
+      <h1 class="text-center">Word Generator<h1>
+        <p>Click below to get a random word and its definition!</p>
     </header>
 
     <section class="text-center">
       <!-- <p>~small concept breakdown~</p> -->
 
-      <button class="button alert text-center" id="get_word">Play!</button>
+      <button class="button alert text-center" id="get_word">Get Word</button>
     </section>
 
     <div class="grid-container">
       <div class="grid-x grid-padding-x text-center align-center invisible">
-        <h2>Score:<span class="score-text"></span></h2>
+        <!-- <h2>Score:<span class="score-text"></span></h2>
+        <h2>Timer:<span class="timer-text"></span></h2> -->
         <div class="medium-3 cell">
-          <!-- <h2 class = "word"></h2> -->
+          <h2 class = "word"></h2>
           <p class="definition">
           </p>
         </div>
       </div>
-      <form class="answer-form">
+      <!-- <form class="answer-form">
         <input type="text" id= "user-input" autocomplete="off">
         <button class=" button">Submit</button>
-      </form>
+      </form> -->
     </div>
 
     <section class="text-center">
       <!-- <p>~small concept breakdown~</p> -->
-      <button class="button alert text-center invisible">Save Word</button>
+      <button class="button alert text-center invisible save">Save Word</button>
     </section>
 
-      <button class="button text-center float-left">Score</button>
+    
+
+    
+
+      <button class="button text-center float-left" data-open="exampleModal1">My Words</button>
       <button class="button text-center float-right" id="togglePlay">
         Music Player
       </button>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script> -->
+      <div class="reveal" id="exampleModal1" data-reveal>
+        <table>
+          <thead>
+            <tr>
+              <th width="200">Words</th>
+              <th>Definitions</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
     <script src="./Assets/Javascript/script.js"></script>
    <!-- <script src="https://sdk.scdn.co/spotify-player.js"></script> -->
   </body>

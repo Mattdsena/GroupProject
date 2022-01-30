@@ -1,3 +1,5 @@
+$(document).foundation();
+
 //Api Key
 var wordsApiKey = "89404d9e7emshb84fd6cf4678f81p15d0efjsneb0241320851";
 
@@ -7,16 +9,13 @@ var definition = document.querySelector(".definition");
 var answerForm = document.querySelector(".answer-form");
 var userAnswer = document.getElementById("user-input");
 var scoreText = document.querySelector(".score-text");
-var score = 0;
+var saveWord = document.querySelector(".save");
+var newWord = document.querySelector(".word");
 
 
-// var newWord = document.querySelector(".word");
 
-
-getWord.addEventListener("click", beginGen);
-
-function beginGen() {
-  fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions&letters=5", {
+function fetchWord () {
+  return fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions&letters=5", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
@@ -26,38 +25,33 @@ function beginGen() {
 .then(function (response) {
   return response.json();
 })
+};
+
+getWord.addEventListener("click", beginGen);
+
+
+
+function beginGen() {
+  fetchWord()
   .then(function (data) {
      console.log(data);
-     var correctAnswer = data.word;
-     console.log(correctAnswer);
+     newWord.textContent = data.word;
      definition.textContent = data.results[0].definition;
-     scoreText.textContent = score;
-     answerForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      if (userAnswer.value.toLowerCase() === data.word.toLowerCase()) {
-        console.log("correct");
-        score++;
-      } else {
-        console.log("incorrect");
-      }
-      return beginGen();
-  
+     saveWord.classList.remove("invisible");
+     saveWord.addEventListener("click", function(event) {
+      event.preventDefault()
+      console.log("clicked");
+      words = JSON.parse(localStorage.getItem("words")) || [];
+      words.push({"Words": newWord.textContent, "Def": definition.textContent });
+      localStorage.setItem("words", JSON.stringify(words));
     })
+    
      
   });
-
-  
-
   invi.classList.remove("invisible");
-  
 }
 
-// Select elements from html and assign to variables
 
-
-// Function to fetch word apis and display to page
-// create new elements, assign text content as fetch responses
-// append new elements
 
 // Function to fetch sounds
 
