@@ -4,28 +4,17 @@ var wordsApiKey = "89404d9e7emshb84fd6cf4678f81p15d0efjsneb0241320851";
 const getWord = document.querySelector("#get_word");
 var invi = document.querySelector(".invisible");
 var definition = document.querySelector(".definition");
+var answerForm = document.querySelector(".answer-form");
+var userAnswer = document.getElementById("user-input");
+var scoreText = document.querySelector(".score-text");
+var score = 0;
 
 
-
-
-
-// This is just to test the API was working - Hannah
-// fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-// 		"x-rapidapi-key": wordsApiKey
-// 	}
-// })
-// .then(function (response) {
-//   return response.json();
-// })
-// .then(function (data) {
-//   console.log(data);
-// });
+// var newWord = document.querySelector(".word");
 
 
 getWord.addEventListener("click", beginGen);
+
 function beginGen() {
   fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions&letters=5", {
 	"method": "GET",
@@ -37,10 +26,28 @@ function beginGen() {
 .then(function (response) {
   return response.json();
 })
-.then(function (data) {
-  console.log(data);
-  definition.textContent = data.results[0].definition;
-});
+  .then(function (data) {
+     console.log(data);
+     var correctAnswer = data.word;
+     console.log(correctAnswer);
+     definition.textContent = data.results[0].definition;
+     scoreText.textContent = score;
+     answerForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (userAnswer.value.toLowerCase() === data.word.toLowerCase()) {
+        console.log("correct");
+        score++;
+      } else {
+        console.log("incorrect");
+      }
+      return beginGen();
+  
+    })
+     
+  });
+
+  
+
   invi.classList.remove("invisible");
   
 }
@@ -54,55 +61,55 @@ function beginGen() {
 
 // Function to fetch sounds
 
-window.onSpotifyWebPlaybackSDKReady = () => {
-  const token =
-    "BQDAWU8MOC8rvDQnI4QyLm1F0FutzGEMuc-NqJGwBuVehRbwYeq-pUv7nGD_DcOjpf_x9VgrjsV5g40md3gPdYXGa4Jf7ajFnpD7mqV_ij4qbY5DxSnZ0WQFOIhpl8063DncrGPBfhVeIMhlml6U6M-hyifz7cw";
+// window.onSpotifyWebPlaybackSDKReady = () => {
+//   const token =
+//     "BQBD2AgHF1VndFv108lnU2Gm-DFfguxOWO6N_Cd25YpLl4umcE27kSgO4wHaQoeLIWKWKY3tJ_xTwZplxQk8iRgnU7D4S0Q8ewKFS_fcNXKkFyYiajAwPDDZh0TgvXbKOJzR0HdhndE9bY9Y17-dNipybxCiocU";
 
-  const player = new Spotify.Player({
-    name: "Web Playback SDK Quick Start Player",
-    getOAuthToken: (cb) => {
-      cb(token);
-    },
-    volume: 0.5,
-  });
-  // this function is the event listener, when the play button is clicked it plays
+//   const player = new Spotify.Player({
+//     name: "Web Playback SDK Quick Start Player",
+//     getOAuthToken: (cb) => {
+//       cb(token);
+//     },
+//     volume: 0.5,
+//   });
+//   // this function is the event listner, when the play is clicked it plays
 
-  document.getElementById("togglePlay").onclick = function () {
-    player.togglePlay();
-  };
+//   document.getElementById("togglePlay").onclick = function () {
+//     player.togglePlay();
+//   };
 
-  player.connect();
+//   player.connect();
 
-  // Ready
-  player.addListener("ready", ({ device_id }) => {
-    console.log("Ready with Device ID", device_id);
+//   // Ready
+//   player.addListener("ready", ({ device_id }) => {
+//     console.log("Ready with Device ID", device_id);
 
-    //this api fetches the list of tracks in the playlist
+//     //this api fetches the list of tracks in the playlist
 
-    fetch("https://api.spotify.com/v1/playlists/37i9dQZF1EVHGWrwldPRtj", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }).then(async (resp) => {
-      const respData = await resp.json();
-      const tracks = respData.tracks.items;
+//     fetch("https://api.spotify.com/v1/playlists/37i9dQZF1EVHGWrwldPRtj", {
+//       method: "GET",
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     }).then(async (resp) => {
+//       const respData = await resp.json();
+//       const tracks = respData.tracks.items;
 
-      // api call to initialize the player to play the list of tracks
-      fetch(
-        `https://api.spotify.com/v1/me/player/play?device_id=${device_id}`,
-        {
-          method: "PUT",
-          body: JSON.stringify({
-            uris: tracks.map((item) => item.track.uri),
-          }),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-    });
-  });
-};
-// on click wordBtn, call fetch word function
+//       // api call to initialize the player to play the list of tracks
+//       fetch(
+//         `https://api.spotify.com/v1/me/player/play?device_id=${device_id}`,
+//         {
+//           method: "PUT",
+//           body: JSON.stringify({
+//             uris: tracks.map((item) => item.track.uri),
+//           }),
+//           headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `Bearer ${token}`,
+//           },
+//         }
+//       );
+//     });
+//   });
+// };
+

@@ -17,23 +17,30 @@
 
   <body>
     <header class="text-center">
-      <h1 class="text-center">Wordy!<h1>
-        <p>If you think you're a nerdy, then guess the wordy!</p>
+      <h1 class="text-center">Word Guess!<h1>
+        <p>How to play:</p>
+        <p>Guess the five-letter word based on the definition given!</p>
     </header>
 
     <section class="text-center">
       <!-- <p>~small concept breakdown~</p> -->
 
-      <button class="button alert text-center" id="get_word">Let's go!</button>
+      <button class="button alert text-center" id="get_word">Play!</button>
     </section>
 
     <div class="grid-container">
       <div class="grid-x grid-padding-x text-center align-center invisible">
+        <h2>Score:<span class="score-text"></span></h2>
         <div class="medium-3 cell">
+          <!-- <h2 class = "word"></h2> -->
           <p class="definition">
           </p>
         </div>
-
+      </div>
+      <form class="answer-form">
+        <input type="text" id= "user-input" autocomplete="off">
+        <button class=" button">Submit</button>
+      </form>
     </div>
 
     <section class="text-center">
@@ -41,13 +48,13 @@
       <button class="button alert text-center invisible">Save Word</button>
     </section>
 
-      <button class="button text-center float-left">My Words</button>
+      <button class="button text-center float-left">Score</button>
       <button class="button text-center float-right" id="togglePlay">
         Music Player
       </button>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script> -->
     <script src="./Assets/Javascript/script.js"></script>
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+   <!-- <script src="https://sdk.scdn.co/spotify-player.js"></script> -->
   </body>
 </html>
