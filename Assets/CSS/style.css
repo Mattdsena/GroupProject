@@ -1,8 +1,5 @@
 :root {
-  --black: #040403;
-  --lgrey: #6b818c;
   --salmon: #f1bf98;
-  --red: #cc2936;
   --navy: #08415C;
 }
 
@@ -30,23 +27,11 @@ body {
   height: 7%;
 }
 
-footer button {
-  margin: 10px !important;
-}
-
 .cell {
   background-color: var(--salmon);
   padding: 20px;
   margin: 20px;
   color: var(--navy);
-}
-
-.button {
-  border-radius: 10%;
-}
-footer .player {
-  width: 400px;
-  float: right;
 }
 
 #exampleModal1 {
