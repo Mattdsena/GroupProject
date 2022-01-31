@@ -16,33 +16,33 @@ var myWordBtn = document.querySelector(".my-word-btn");
 var words;
 
 //Fetches random word with WordsAPI
-function fetchWord () {
-  return fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions&letters=5", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-		"x-rapidapi-key": wordsApiKey
-	}
-})
-.then(function (response) {
-  return response.json();
-})
-};
+function fetchWord() {
+  return fetch(
+    "https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions&letters=5",
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+        "x-rapidapi-key": wordsApiKey,
+      },
+    }
+  ).then(function (response) {
+    return response.json();
+  });
+}
 
 //On click of Get Word button, beginGen function is called
 getWord.addEventListener("click", beginGen);
 
 //Returns fetch and displays data to page
 function beginGen() {
-  fetchWord()
-  .then(function (data) {
-     console.log(data);
-     newWord.textContent = data.word;
-     definition.textContent = data.results[0].definition;
-     saveWord.classList.remove("invisible");
-       words = JSON.parse(localStorage.getItem("words")) || [];
-       words.push({"Words": newWord.textContent, "Def": definition.textContent }); 
-
+  fetchWord().then(function (data) {
+    console.log(data);
+    newWord.textContent = data.word;
+    definition.textContent = data.results[0].definition;
+    saveWord.classList.remove("invisible");
+    words = JSON.parse(localStorage.getItem("words")) || [];
+    words.push({ Words: newWord.textContent, Def: definition.textContent });
   });
   invi.classList.remove("invisible");
 }
@@ -69,15 +69,13 @@ function renderMyWords() {
   }
 }
 
-
 //On click of My Words button, calls renderMyWords function
 myWordBtn.addEventListener("click", renderMyWords);
-
 
 // Spotify player
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "BQAtAjBkIvy1YWhm4EDh_VLTKBRnjkU3Kqy2PKpxSN6-FSw2RZ-BehUEbhfx0EV-NeqSvHGGQurvAy7-JNgremKs4uf7CatS4_LGK--cj3ic30ADluuETJX7fAlHgNGrGEVhUv8Uzv8SAWcmmOBsEGRUtCcw8AE";
+    "BQDsrpl6rcXBxHYbMqWbro0xfRR-Yy4WCKVGVR5VbTv3WH1MnVNKeeLBbKavOSluQPGryMr1tFqvjZMXkkLJcEbZinF20Rk4bNU8bIiHUOyHvyvRbxxGQO5FYhF2nyMxpMK37C11wLeMigH-VsL-UakaFC8zEhc";
 
   const player = new Spotify.Player({
     name: "Web Playback SDK Quick Start Player",
