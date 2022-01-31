@@ -42,6 +42,7 @@ function beginGen() {
      saveWord.classList.remove("invisible");
        words = JSON.parse(localStorage.getItem("words")) || [];
        words.push({"Words": newWord.textContent, "Def": definition.textContent }); 
+
   });
   invi.classList.remove("invisible");
 }
@@ -50,35 +51,33 @@ function beginGen() {
 saveWord.addEventListener("click", function (event) {
   event.preventDefault();
   localStorage.setItem("words", JSON.stringify(words));
-})
-
+});
 
 // Displays saved words and definitions to modal when My Word button is clicked
 function renderMyWords() {
   $(".my-words").empty();
-  var words = JSON.parse(localStorage.getItem("words")) || [];  
+  var words = JSON.parse(localStorage.getItem("words")) || [];
   for (const element of words) {
-      var tableRow = document.createElement("tr");
-      var wordSlot = document.createElement("td");
-      var defSlot = document.createElement("td");
-      myWordsTable.appendChild(tableRow);
-      wordSlot.textContent = element.Words;
-      defSlot.textContent = element.Def;
-      tableRow.appendChild(wordSlot);
-      tableRow.appendChild(defSlot);
-
-    }
+    var tableRow = document.createElement("tr");
+    var wordSlot = document.createElement("td");
+    var defSlot = document.createElement("td");
+    myWordsTable.appendChild(tableRow);
+    wordSlot.textContent = element.Words;
+    defSlot.textContent = element.Def;
+    tableRow.appendChild(wordSlot);
+    tableRow.appendChild(defSlot);
+  }
 }
+
 
 //On click of My Words button, calls renderMyWords function
 myWordBtn.addEventListener("click", renderMyWords);
 
 
 // Spotify player
-
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "BQBD2AgHF1VndFv108lnU2Gm-DFfguxOWO6N_Cd25YpLl4umcE27kSgO4wHaQoeLIWKWKY3tJ_xTwZplxQk8iRgnU7D4S0Q8ewKFS_fcNXKkFyYiajAwPDDZh0TgvXbKOJzR0HdhndE9bY9Y17-dNipybxCiocU";
+    "BQAtAjBkIvy1YWhm4EDh_VLTKBRnjkU3Kqy2PKpxSN6-FSw2RZ-BehUEbhfx0EV-NeqSvHGGQurvAy7-JNgremKs4uf7CatS4_LGK--cj3ic30ADluuETJX7fAlHgNGrGEVhUv8Uzv8SAWcmmOBsEGRUtCcw8AE";
 
   const player = new Spotify.Player({
     name: "Web Playback SDK Quick Start Player",
@@ -127,4 +126,3 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     });
   });
 };
-
