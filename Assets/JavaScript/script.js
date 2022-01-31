@@ -13,41 +13,38 @@ var saveWord = document.querySelector(".save");
 var newWord = document.querySelector(".word");
 var myWordsTable = document.querySelector(".my-words");
 var myWordBtn = document.querySelector(".my-word-btn");
-var words
+var words;
 
-function fetchWord () {
-  return fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions&letters=5", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-		"x-rapidapi-key": wordsApiKey
-	}
-})
-.then(function (response) {
-  return response.json();
-})
-};
+function fetchWord() {
+  return fetch(
+    "https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions&letters=5",
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+        "x-rapidapi-key": wordsApiKey,
+      },
+    }
+  ).then(function (response) {
+    return response.json();
+  });
+}
 
 getWord.addEventListener("click", beginGen);
 
-
-
 function beginGen() {
-  fetchWord()
-  .then(function (data) {
-     console.log(data);
-     newWord.textContent = data.word;
-     definition.textContent = data.results[0].definition;
-     saveWord.classList.remove("invisible");
+  fetchWord().then(function (data) {
+    console.log(data);
+    newWord.textContent = data.word;
+    definition.textContent = data.results[0].definition;
+    saveWord.classList.remove("invisible");
     //  saveWord.addEventListener("click", function(event) {
     //   event.preventDefault()
     //   console.log("clicked");
-       words = JSON.parse(localStorage.getItem("words")) || [];
-       words.push({"Words": newWord.textContent, "Def": definition.textContent });
+    words = JSON.parse(localStorage.getItem("words")) || [];
+    words.push({ Words: newWord.textContent, Def: definition.textContent });
     //   localStorage.setItem("words", JSON.stringify(words));
     // })
-    
-     
   });
   invi.classList.remove("invisible");
 }
@@ -55,34 +52,30 @@ function beginGen() {
 saveWord.addEventListener("click", function (event) {
   event.preventDefault();
   localStorage.setItem("words", JSON.stringify(words));
-})
-
+});
 
 function renderMyWords() {
   $(".my-words").empty();
-  var words = JSON.parse(localStorage.getItem("words")) || [];  
+  var words = JSON.parse(localStorage.getItem("words")) || [];
   for (const element of words) {
-      var tableRow = document.createElement("tr");
-      var wordSlot = document.createElement("td");
-      var defSlot = document.createElement("td");
-      myWordsTable.appendChild(tableRow);
-      wordSlot.textContent = element.Words;
-      defSlot.textContent = element.Def;
-      tableRow.appendChild(wordSlot);
-      tableRow.appendChild(defSlot);
-
-    }
+    var tableRow = document.createElement("tr");
+    var wordSlot = document.createElement("td");
+    var defSlot = document.createElement("td");
+    myWordsTable.appendChild(tableRow);
+    wordSlot.textContent = element.Words;
+    defSlot.textContent = element.Def;
+    tableRow.appendChild(wordSlot);
+    tableRow.appendChild(defSlot);
+  }
 }
 
-
 myWordBtn.addEventListener("click", renderMyWords);
-
 
 // Function to fetch sounds
 
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "BQBD2AgHF1VndFv108lnU2Gm-DFfguxOWO6N_Cd25YpLl4umcE27kSgO4wHaQoeLIWKWKY3tJ_xTwZplxQk8iRgnU7D4S0Q8ewKFS_fcNXKkFyYiajAwPDDZh0TgvXbKOJzR0HdhndE9bY9Y17-dNipybxCiocU";
+    "BQAtAjBkIvy1YWhm4EDh_VLTKBRnjkU3Kqy2PKpxSN6-FSw2RZ-BehUEbhfx0EV-NeqSvHGGQurvAy7-JNgremKs4uf7CatS4_LGK--cj3ic30ADluuETJX7fAlHgNGrGEVhUv8Uzv8SAWcmmOBsEGRUtCcw8AE";
 
   const player = new Spotify.Player({
     name: "Web Playback SDK Quick Start Player",
@@ -131,4 +124,3 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     });
   });
 };
-
