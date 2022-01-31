@@ -23,3 +23,15 @@
 - Hannahj25, Mattdsena, Oriaje & Wizard-mate conceptulised the project; draft preparation and software development and validation. Matt D'Sena: Team Lead. Prab & Nav: Project supervisor
 
 # [Licence](Licence.txt)
+
+Please see the link and a screenshot of our page, including random word, saved word and music playing
+
+![Final Searched](https://github.com/Mattdsena/WeatherDashboard/blob/main/Assets/Images/main-page.jpg)
+![Final Searched](https://github.com/Mattdsena/WeatherDashboard/blob/main/Assets/Images/main-page.jpg)
+![Final Searched](https://github.com/Mattdsena/WeatherDashboard/blob/main/Assets/Images/main-page.jpg)
+![Final Searched](https://github.com/Mattdsena/WeatherDashboard/blob/main/Assets/Images/main-page.jpg)
+
+
+
+
+https://mattdsena.github.io/GroupProject/
