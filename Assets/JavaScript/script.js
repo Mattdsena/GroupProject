@@ -75,7 +75,7 @@ myWordBtn.addEventListener("click", renderMyWords);
 // Spotify player
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "BQDsrpl6rcXBxHYbMqWbro0xfRR-Yy4WCKVGVR5VbTv3WH1MnVNKeeLBbKavOSluQPGryMr1tFqvjZMXkkLJcEbZinF20Rk4bNU8bIiHUOyHvyvRbxxGQO5FYhF2nyMxpMK37C11wLeMigH-VsL-UakaFC8zEhc";
+    "BQAZgstpuLrPTnLraCuftQ5J6i-EQlFqxngzuUB7NZz4axE0MjMi3GzQqANNuVGlhpYRsJ-wa0mlGfBkAwNufanqMD7aW-OZ2SDgZwcFXbkfcyUuPaip7E-LKkkSEui-RZL0hJqXQRzuKWkqTmPkJyhqCi4ztn0";
 
   const player = new Spotify.Player({
     name: "Web Playback SDK Quick Start Player",
