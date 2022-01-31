@@ -26,12 +26,9 @@
 
 Please see the link and a screenshot of our page, including random word, saved word and music playing
 
-![Final Searched](https://github.com/Mattdsena/WeatherDashboard/blob/main/Assets/Images/main-page.jpg)
-![Final Searched](https://github.com/Mattdsena/WeatherDashboard/blob/main/Assets/Images/main-page.jpg)
-![Final Searched](https://github.com/Mattdsena/WeatherDashboard/blob/main/Assets/Images/main-page.jpg)
-![Final Searched](https://github.com/Mattdsena/WeatherDashboard/blob/main/Assets/Images/main-page.jpg)
-
-
-
+![Main Page](https://github.com/Mattdsena/GroupProject/blob/main/Assets/Images/Main.jpg)
+![Random Word](https://github.com/Mattdsena/GroupProject/blob/main/Assets/Images/random-word-generated.jpg)
+![Saved Words](https://github.com/Mattdsena/GroupProject/blob/main/Assets/Images/saved-words.jpg)
+![Music Plays](https://github.com/Mattdsena/GroupProject/blob/main/Assets/Images/shows-sound-is-working.jpg)
 
 https://mattdsena.github.io/GroupProject/
