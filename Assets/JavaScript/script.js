@@ -3,57 +3,57 @@ $(document).foundation();
 //Api Key
 var wordsApiKey = "89404d9e7emshb84fd6cf4678f81p15d0efjsneb0241320851";
 
+// Selects elements from document and assigns to variables
 const getWord = document.querySelector("#get_word");
 var invi = document.querySelector(".invisible");
 var definition = document.querySelector(".definition");
-var answerForm = document.querySelector(".answer-form");
-var userAnswer = document.getElementById("user-input");
-var scoreText = document.querySelector(".score-text");
 var saveWord = document.querySelector(".save");
 var newWord = document.querySelector(".word");
 var myWordsTable = document.querySelector(".my-words");
 var myWordBtn = document.querySelector(".my-word-btn");
-var words;
 
-function fetchWord() {
-  return fetch(
-    "https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions&letters=5",
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-        "x-rapidapi-key": wordsApiKey,
-      },
-    }
-  ).then(function (response) {
-    return response.json();
-  });
-}
+// Variable to be used in saving words to local storage
+var words
 
+//Fetches random word with WordsAPI
+function fetchWord () {
+  return fetch("https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions&letters=5", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+		"x-rapidapi-key": wordsApiKey
+	}
+})
+.then(function (response) {
+  return response.json();
+})
+};
+
+//On click of Get Word button, beginGen function is called
 getWord.addEventListener("click", beginGen);
 
+//Returns fetch and displays data to page
 function beginGen() {
-  fetchWord().then(function (data) {
-    console.log(data);
-    newWord.textContent = data.word;
-    definition.textContent = data.results[0].definition;
-    saveWord.classList.remove("invisible");
-    //  saveWord.addEventListener("click", function(event) {
-    //   event.preventDefault()
-    //   console.log("clicked");
-    words = JSON.parse(localStorage.getItem("words")) || [];
-    words.push({ Words: newWord.textContent, Def: definition.textContent });
-    //   localStorage.setItem("words", JSON.stringify(words));
-    // })
+  fetchWord()
+  .then(function (data) {
+     console.log(data);
+     newWord.textContent = data.word;
+     definition.textContent = data.results[0].definition;
+     saveWord.classList.remove("invisible");
+       words = JSON.parse(localStorage.getItem("words")) || [];
+       words.push({"Words": newWord.textContent, "Def": definition.textContent }); 
+
   });
   invi.classList.remove("invisible");
 }
 
+//On click of Save Word button, the current word and definition are saved to localstorage
 saveWord.addEventListener("click", function (event) {
   event.preventDefault();
   localStorage.setItem("words", JSON.stringify(words));
 });
 
+// Displays saved words and definitions to modal when My Word button is clicked
 function renderMyWords() {
   $(".my-words").empty();
   var words = JSON.parse(localStorage.getItem("words")) || [];
@@ -69,10 +69,12 @@ function renderMyWords() {
   }
 }
 
+
+//On click of My Words button, calls renderMyWords function
 myWordBtn.addEventListener("click", renderMyWords);
 
-// Function to fetch sounds
 
+// Spotify player
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
     "BQAtAjBkIvy1YWhm4EDh_VLTKBRnjkU3Kqy2PKpxSN6-FSw2RZ-BehUEbhfx0EV-NeqSvHGGQurvAy7-JNgremKs4uf7CatS4_LGK--cj3ic30ADluuETJX7fAlHgNGrGEVhUv8Uzv8SAWcmmOBsEGRUtCcw8AE";
