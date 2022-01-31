@@ -41,3 +41,7 @@ body {
 #exampleModal1 {
   background-color: var(--salmon);
 }
+
+.button {
+  border-radius: 10%
+}
