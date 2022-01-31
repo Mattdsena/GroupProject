@@ -13,7 +13,7 @@ var myWordsTable = document.querySelector(".my-words");
 var myWordBtn = document.querySelector(".my-word-btn");
 
 // Variable to be used in saving words to local storage
-var words
+var words;
 
 //Fetches random word with WordsAPI
 function fetchWord () {
