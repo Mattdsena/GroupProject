@@ -22,6 +22,6 @@
 
 # Authors and acknowledgement
 
-- Hannahj25, Mattdsena, Oriaje & Wizard-mate conceptulised the project; draft preparation and software development and validation. MAttdena: team lead. Prab & Nav: Project supervisor
+- Hannahj25, Mattdsena, Oriaje & Wizard-mate conceptulised the project; draft preparation and software development and validation. Matt D'Sena: Team Lead. Prab & Nav: Project supervisor
 
 # [Licence](Licence.txt)
